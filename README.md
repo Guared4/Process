@@ -207,7 +207,7 @@ root@vagrant:/vagrant# pgrep -f "cpu_intensive_task"
 
 Завершить процессы с помощью команды kill:  
 
-kill -SIGTERM <pid1> <pid2>  
+kill -SIGTERM pid1 pid2  
 
 root@vagrant:/vagrant# kill 18187 18189
 
@@ -253,7 +253,7 @@ MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   1619.6 avail Mem
 ```
 
 
-Где <pid1> и <pid2> — это идентификаторы запущенных процессов. 
+Где pid1 и pid2 — это идентификаторы запущенных процессов. 
 
 
 
