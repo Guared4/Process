@@ -1,35 +1,35 @@
 #!/bin/bash
 
-# Print the header
+# Вывод заголовка
 printf "%-7s %-10s %-10s %-10s %-s\n" "PID" "USER" "FD" "TYPE" "NAME"
 
-# Iterate over each PID directory in /proc
+# Выполнение итерации по каждому каталогу PID в /proc
 for pid_dir in /proc/[0-9]*; do
-    # Extract the PID from the directory name
+    # Извлечь PID из имени директории
     pid=${pid_dir##*/}
 
-    # Check if the process directory is accessible
+    # Проверка, доступен ли каталог процессов
     if [[ ! -r "$pid_dir" ]]; then
         continue
     fi
 
-    # Get the user who owns the process
+    # Найти пользователя, которому принадлежит этот процесс
     user=$(stat -c '%U' "$pid_dir")
 
-    # Iterate over the file descriptors
+    # Выполнение итерации по файловым дескрипторам
     for fd in "$pid_dir"/fd/*; do
         if [[ -e "$fd" ]]; then
-            # Get the file descriptor number
+            # Получить номер файлового дескриптора
             fd_num=$(basename "$fd")
 
-            # Get the type of the file
+            # Получить тип файла
             type=$(ls -l "$fd" 2>/dev/null | awk '{print $1}')
 
-            # Get the file name
+            # Получить имя файла
             name=$(readlink -f "$fd" 2>/dev/null)
 
-            # Print the process info
+            # Вывод инвормации о процессе
             printf "%-7s %-10s %-10s %-10s %-s\n" "$pid" "$user" "$fd_num" "$type" "$name"
         fi
     done
-done
+done 
