@@ -128,10 +128,10 @@ chmod +x CPU_nice.sh
 
 ./bash CPU_nice.sh
 
-root@vagrant:/vagrant# bash CPU_nice.sh
-Запуск процесса 1 с nice 10
-Запуск процесса 2 с nice -10
-Начало выполнения процесса 1 с PID 18187
+root@vagrant:/vagrant# bash CPU_nice.sh  
+Запуск процесса 1 с nice 10  
+Запуск процесса 2 с nice -10  
+Начало выполнения процесса 1 с PID 18187  
 Начало выполнения процесса 2 с PID 18189  
 
 Описание
