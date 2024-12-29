@@ -201,9 +201,7 @@ MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   1618.9 avail Mem
 
 pgrep -f "cpu_intensive_task"  
 
-root@vagrant:/vagrant# pgrep -f "cpu_intensive_task"
-13974
-13975  
+root@vagrant:/vagrant# pgrep -f "cpu_intensive_task"  
 18187
 18189
 
